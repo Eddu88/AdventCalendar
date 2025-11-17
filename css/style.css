@@ -1,0 +1,274 @@
+body {
+	background: #E89AA7;
+	color: #F5F5F5;
+	font-family: 'BioRhyme', serif;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover,
+a:focus {
+	color: #F5F5F5;
+}
+
+.calendar {
+	-webkit-perspective: 2500px;
+	perspective: 2500px;
+	width: 100%;
+}
+
+.layout-container {
+	display: flex;
+	min-height: 100vh;
+	align-items: flex-start;
+	padding: 8vh 2rem;
+	gap: 2rem;
+}
+
+.left-section {
+	flex: 0 0 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.left-content {
+	text-align: center;
+	max-width: 350px;
+}
+
+.main-title {
+	font-size: 2.5rem;
+	color: #F5F5F5;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+	font-weight: 700;
+	font-family: 'BioRhyme', serif;
+}
+
+.decorative-image {
+	width: 200px; /* <-- Le damos un ancho fijo */
+	max-width: 100%; /* Mantenemos esto por seguridad en móviles */
+	height: auto; /* Se ajusta automáticamente para no deformarse */
+	margin-top: 1.5rem;
+	border-radius: 10px;
+	display: block; /* Ayuda a centrar la imagen */
+	margin-left: auto; /* Centra la imagen horizontalmente */
+	margin-right: auto; /* Centra la imagen horizontalmente */
+}
+
+.right-section {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.calendar-wrap {
+	width: 100%;
+	max-width: 900px;
+}
+
+.cube__side,
+.no-js .cube {
+	border: 3px solid #fff;
+	outline: 1px solid #fff;
+	background: #f0f0f0 url(../img/c1.png) no-repeat center center;
+}
+
+.cube:not(.cube--inactive):nth-child(2n) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(2n) {
+	background-image: url(../img/c2.png);
+}
+
+.cube:not(.cube--inactive):nth-child(3n) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(3n) {
+	background-image: url(../img/c3.png);
+}
+
+.cube:not(.cube--inactive):nth-child(4n) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(4n) {
+	background-image: url(../img/c4.png);
+}
+
+.cube:not(.cube--inactive):nth-child(5n) .cube__side,
+.no-js .cube:not(.cube--inactive):nth-child(5n) {
+	background-image: url(../img/c5.png);
+}
+
+.cube--inactive .cube__side,
+.no-js .cube--inactive {
+	background: #e6e6e6;
+}
+
+.cube__number,
+.no-js .cube::after {
+	font-weight: 700;
+	color: #E89AA7;
+	background: #fff;
+	width: 100%;
+	text-align: center;
+	top: 50%;
+	height: 1.5em;
+	line-height: 1.5;
+	bottom: auto;
+	margin: -0.75em 0 0;
+}
+
+.cube--inactive .cube__number,
+.no-js .cube--inactive::after {
+	color: #cac9c9;
+}
+
+.js .content__block {
+	width: 100%;
+	padding: 0 5vw 0 20vw;
+}
+
+.js .content__description {
+	padding: 0 0 0 4vw;
+}
+
+.content__number {
+	color: #000;
+	font-weight: bold;
+	line-height: 0.5;
+	letter-spacing: -0.175em;
+	font-size: 30vw;
+	left: -5vw;
+	bottom: 8vh;
+}
+
+.content__title {
+	font-size: 6vw;
+}
+
+.word-wrapper {
+	display: inline-block;
+}
+
+.title {
+	color: #F5F5F5;
+	font-size: 2.5rem;
+	font-weight: 700;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	margin-top: 2rem;
+	padding: 1rem 0;
+	white-space: nowrap;
+	pointer-events: none;
+	opacity: 0;
+}
+
+/* Estilo para el número del día, como en tu imagen de ejemplo */
+.title .title__number {
+	font-weight: 900;
+	margin-right: 0.5em;
+	color: #000000;
+}
+
+/* Responsive mobile/tablet */
+@media screen and (max-width: 1024px) {
+  .title {
+		font-size: 1.8rem;
+		margin-top: 1rem;
+		white-space: normal;
+  }
+
+  .content__title {
+        white-space: normal;
+  }
+
+  .layout-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .left-section {
+    flex: 0 0 auto;
+    padding: 2rem 0;
+    width: 100%;
+  }
+  
+  .right-section {
+    padding: 0;
+    width: 100%;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .js .content__block {
+		padding: 4em 2em 0;
+		justify-content: flex-start;
+  }
+	
+  .content__number {
+		bottom: 30vh;
+  }
+}
+
+/* Desktop - 5 columnas */
+@media screen and (min-width: 1025px) {
+	.title {
+		bottom: 5vh !important;
+		left: 5vw !important;
+		top: auto !important;
+		font-size: 4vw;
+	}
+	.js .calendar {
+		position: relative !important;
+		padding: 1em 2vw 2em !important;
+	}
+	
+	.calendar {
+		padding: 1em 2vw !important;
+		height: auto !important;
+		overflow: visible !important;
+	}
+	
+	.cube {
+		width: 7vw !important;
+		height: 7vw !important;
+		margin: 0.5vw !important;
+	}
+	
+	.js .cube:first-child {
+		margin-left: 0.5vw !important;
+	}
+	
+	.cube__side--front {
+		-webkit-transform: translateZ(3.5vw) !important;
+		transform: translateZ(3.5vw) !important;
+	}
+	
+	.cube__side--back {
+		-webkit-transform: rotateY(180deg) translateZ(3.5vw) !important;
+		transform: rotateY(180deg) translateZ(3.5vw) !important;
+	}
+	
+	.cube__side--right {
+		-webkit-transform: rotateY(90deg) translateZ(3.5vw) !important;
+		transform: rotateY(90deg) translateZ(3.5vw) !important;
+	}
+	
+	.cube__side--left {
+		-webkit-transform: rotateY(-90deg) translateZ(3.5vw) !important;
+		transform: rotateY(-90deg) translateZ(3.5vw) !important;
+	}
+	
+	.cube__side--top {
+		-webkit-transform: rotateX(90deg) translateZ(3.5vw) !important;
+		transform: rotateX(90deg) translateZ(3.5vw) !important;
+	}
+	
+	.cube__side--bottom {
+		-webkit-transform: rotateX(-90deg) translateZ(3.5vw) !important;
+		transform: rotateX(-90deg) translateZ(3.5vw) !important;
+	}
+}
