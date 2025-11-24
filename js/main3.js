@@ -665,8 +665,19 @@
 
 	function init() {
 		layout();
-		// Añadimos un "escuchador" que se activará UNA SOLA VEZ con el primer clic.
-		window.addEventListener('click', iniciarMusicaConInteraccion, { once: true });
+		// Intentamos iniciar la música con cualquier interacción del usuario
+		const eventos = ['click', 'mousemove', 'touchstart', 'keydown', 'scroll'];
+
+		const iniciar = () => {
+			iniciarMusicaConInteraccion();
+			// Una vez que intentamos reproducir, removemos los listeners para no saturar
+			// Nota: Si falla por políticas del navegador (ej. mousemove), seguirá intentando en el siguiente evento (ej. click)
+			// Pero para simplificar, dejaremos que la función iniciarMusicaConInteraccion maneje el estado .paused
+		};
+
+		eventos.forEach(evento => {
+			window.addEventListener(evento, iniciarMusicaConInteraccion, { once: true });
+		});
 	}
 
 	init();
