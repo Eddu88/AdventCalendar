@@ -22,7 +22,7 @@ a:focus {
 .layout-container {
 	display: flex;
 	min-height: 100vh;
-	align-items: flex-start;
+	align-items: center;
 	padding: 8vh 2rem;
 	gap: 2rem;
 }
@@ -49,14 +49,14 @@ a:focus {
 }
 
 .decorative-image {
-	width: 200px; /* <-- Le damos un ancho fijo */
-	max-width: 100%; /* Mantenemos esto por seguridad en móviles */
-	height: auto; /* Se ajusta automáticamente para no deformarse */
+	width: 200px;
+	max-width: 100%;
+	height: auto;
 	margin-top: 1.5rem;
 	border-radius: 10px;
-	display: block; /* Ayuda a centrar la imagen */
-	margin-left: auto; /* Centra la imagen horizontalmente */
-	margin-right: auto; /* Centra la imagen horizontalmente */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .right-section {
@@ -132,7 +132,7 @@ a:focus {
 }
 
 .content__number {
-	color: #000;
+	color: rgba(255, 255, 255, 0.2);
 	font-weight: bold;
 	line-height: 0.5;
 	letter-spacing: -0.175em;
@@ -164,53 +164,65 @@ a:focus {
 	opacity: 0;
 }
 
-/* Estilo para el número del día, como en tu imagen de ejemplo */
 .title .title__number {
 	font-weight: 900;
 	margin-right: 0.5em;
 	color: #000000;
 }
 
-/* Responsive mobile/tablet */
 @media screen and (max-width: 1024px) {
-  .title {
+	.title {
 		font-size: 1.8rem;
 		margin-top: 1rem;
 		white-space: normal;
-  }
+	}
 
-  .content__title {
-        white-space: normal;
-  }
+	.calendar {
+		perspective: 800px;
+	}
 
-  .layout-container {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  
-  .left-section {
-    flex: 0 0 auto;
-    padding: 2rem 0;
-    width: 100%;
-  }
-  
-  .right-section {
-    padding: 0;
-    width: 100%;
-  }
-  
-  .main-title {
-    font-size: 2rem;
-  }
-  
-  .js .content__block {
+	.cubes {
+		transform: rotate3d(1, 1, 0, 10deg);
+	}
+
+	.content__title {
+		white-space: normal;
+	}
+
+	.layout-container {
+		flex-direction: column;
+		padding: 0;
+	}
+
+	.left-section {
+		flex: 0 0 auto;
+		padding: 1rem 0;
+		width: 100%;
+	}
+
+	.decorative-image {
+		width: 120px;
+		/* Smaller image for mobile */
+		margin-top: 1rem;
+	}
+
+	.right-section {
+		padding: 0;
+		width: 100%;
+	}
+
+	.main-title {
+		font-size: 2rem;
+	}
+
+	.js .content__block {
 		padding: 4em 2em 0;
 		justify-content: flex-start;
-  }
-	
-  .content__number {
+	}
+
+	.content__number {
 		bottom: 30vh;
-  }
+	}
 }
 
 /* Desktop - 5 columnas */
@@ -221,52 +233,53 @@ a:focus {
 		top: auto !important;
 		font-size: 4vw;
 	}
+
 	.js .calendar {
 		position: relative !important;
 		padding: 1em 2vw 2em !important;
 	}
-	
+
 	.calendar {
 		padding: 1em 2vw !important;
 		height: auto !important;
 		overflow: visible !important;
 	}
-	
+
 	.cube {
 		width: 7vw !important;
 		height: 7vw !important;
 		margin: 0.5vw !important;
 	}
-	
+
 	.js .cube:first-child {
 		margin-left: 0.5vw !important;
 	}
-	
+
 	.cube__side--front {
 		-webkit-transform: translateZ(3.5vw) !important;
 		transform: translateZ(3.5vw) !important;
 	}
-	
+
 	.cube__side--back {
 		-webkit-transform: rotateY(180deg) translateZ(3.5vw) !important;
 		transform: rotateY(180deg) translateZ(3.5vw) !important;
 	}
-	
+
 	.cube__side--right {
 		-webkit-transform: rotateY(90deg) translateZ(3.5vw) !important;
 		transform: rotateY(90deg) translateZ(3.5vw) !important;
 	}
-	
+
 	.cube__side--left {
 		-webkit-transform: rotateY(-90deg) translateZ(3.5vw) !important;
 		transform: rotateY(-90deg) translateZ(3.5vw) !important;
 	}
-	
+
 	.cube__side--top {
 		-webkit-transform: rotateX(90deg) translateZ(3.5vw) !important;
 		transform: rotateX(90deg) translateZ(3.5vw) !important;
 	}
-	
+
 	.cube__side--bottom {
 		-webkit-transform: rotateX(-90deg) translateZ(3.5vw) !important;
 		transform: rotateX(-90deg) translateZ(3.5vw) !important;
